@@ -4,11 +4,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState, useRef, useEffect } from "react";
 import "./globals.css";
-
-export interface Message {
-  role: "user" | "model";
-  content: string;
-}
+import { Message } from "@/lib/types";
 
 function Page() {
   const [isRecording, setIsRecording] = useState(false);

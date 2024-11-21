@@ -3,8 +3,11 @@ import { Content, GoogleGenerativeAI } from "@google/generative-ai";
 import fs from "fs/promises";
 import path from "path";
 import os from "os";
-import { geminiSystemInstructions } from "@/constants/geminiConfig";
-import { Message } from "@/app/page";
+import {
+  geminiModel,
+  geminiSystemInstructions,
+} from "@/constants/geminiConfig";
+import { Message } from "@/lib/types";
 
 // Initialize the generative AI with your API key
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
@@ -47,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     // Initialize the Gemini model
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: geminiModel,
       systemInstruction: geminiSystemInstructions,
     });
 
